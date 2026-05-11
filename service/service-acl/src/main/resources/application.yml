@@ -1,0 +1,20 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: service-acl
+  profiles:
+    active: dev
+
+  main:
+    allow-circular-references: true
+
+springfox:
+  documentation:
+    enabled: false
+
+  cloud:
+    sentinel:
+      log:
+        dir: D:\open_tool\log\sen_log
