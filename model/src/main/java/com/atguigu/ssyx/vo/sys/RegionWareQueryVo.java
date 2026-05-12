@@ -10,5 +10,7 @@ public class RegionWareQueryVo {
 	@ApiModelProperty(value = "关键字")
 	private String keyword;
 
+
+
 }
 

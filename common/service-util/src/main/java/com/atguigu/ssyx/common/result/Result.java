@@ -25,6 +25,16 @@ public class Result<T> {
 
         return result;
     }
+    public static<T> Result<T> build(T data, Integer code,String message){
+        Result<T> result = new Result<>();
+        if (data!=null){
+            result.setData(data);
+        }
+        result.setCode(code);
+        result.setMessage(message);
+
+        return result;
+    }
 
     //返回成功的方法
     public static<T> Result<T> ok(T data){

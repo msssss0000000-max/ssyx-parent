@@ -20,6 +20,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(SsyxException.class)
     @ResponseBody
     public Result error(SsyxException exception){
-        return Result.fail(null);
+        return Result.build(null,exception.getCode(),exception.getMessage());
     }
 }

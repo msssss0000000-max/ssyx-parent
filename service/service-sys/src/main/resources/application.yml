@@ -1,5 +1,14 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   application:
     name: service-sys
   profiles:
     active: dev
+  main:
+    allow-circular-references: true
+
+springfox:
+  documentation:
+    enabled: false
