@@ -47,7 +47,7 @@ public class RegionWareServiceImpl extends ServiceImpl<RegionWareMapper, RegionW
     }
 
     @Override
-    public void saveRegionWare(RegionWare regionWare) {
+    public void     saveRegionWare(RegionWare regionWare) {
         //判断区域是否已经开通
         LambdaQueryWrapper<RegionWare> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(RegionWare::getRegionId,regionWare.getRegionId());
@@ -55,5 +55,6 @@ public class RegionWareServiceImpl extends ServiceImpl<RegionWareMapper, RegionW
         if (count>0){//已经存在
             throw new SsyxException(ResultCodeEnum.REGION_OPEN);
         }
+        baseMapper.insert(regionWare);
     }
 }
