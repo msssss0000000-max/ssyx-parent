@@ -8,6 +8,10 @@ spring:
     active: dev
   main:
     allow-circular-references: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 springfox:
   documentation:

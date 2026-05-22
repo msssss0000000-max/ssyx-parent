@@ -3,21 +3,16 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   application:
-    name: service-acl
+    name: service-product
   profiles:
     active: dev
-
   main:
     allow-circular-references: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 springfox:
   documentation:
     enabled: false
-
-  cloud:
-    sentinel:
-      log:
-        dir: D:\open_tool\log\sen_log
-    nacos:
-      discovery:
-        server-addr: localhost:8848
