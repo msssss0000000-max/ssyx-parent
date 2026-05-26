@@ -5,6 +5,9 @@ import com.atguigu.ssyx.model.product.SkuAttrValue;
 import com.atguigu.ssyx.model.product.SkuImage;
 import com.atguigu.ssyx.model.product.SkuInfo;
 import com.atguigu.ssyx.model.product.SkuPoster;
+import com.atguigu.ssyx.mq.config.MQConfig;
+import com.atguigu.ssyx.mq.constant.MqConst;
+import com.atguigu.ssyx.mq.service.RabbitService;
 import com.atguigu.ssyx.product.mapper.SkuInfoMapper;
 import com.atguigu.ssyx.product.service.SkuAttrValueService;
 import com.atguigu.ssyx.product.service.SkuImageService;
@@ -44,6 +47,9 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
     //sku海报
     @Autowired
     private SkuAttrValueService skuAttrValueService;
+
+    @Autowired
+    private RabbitService rabbitService;
     //sku列表
     @Override
     public IPage<SkuInfo> selectPageSkuInfo(Page<SkuInfo> pageParam, SkuInfoQueryVo skuInfoQueryVo) {
@@ -172,12 +178,14 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
             SkuInfo skuInfo = baseMapper.selectById(skuId);
             skuInfo.setPublishStatus(status);
             baseMapper.updateById(skuInfo);
-            //TODO 上架操作需要将数据同步到es中
+            //整合mq，将数据同步到es中
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,MqConst.ROUTING_GOODS_UPPER,skuId);
         }else {          //下架操作
             SkuInfo skuInfo = baseMapper.selectById(skuId);
             skuInfo.setPublishStatus(status);
             baseMapper.updateById(skuInfo);
-            //TODO 下架操作需要将数据从es中删除
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,MqConst.ROUTING_GOODS_LOWER,skuId);
+            //整合mq，把数据从es中删除
         }
     }
 
