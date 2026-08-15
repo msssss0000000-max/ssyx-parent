@@ -22,7 +22,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         List<Permission> result = PermissionHelper.buildPermission(allPermissionList);
         return result;
     }
-
+//999999999999999999999999999
     @Override
     public void removeChildById(long id) {
 
