@@ -18,8 +18,7 @@ import java.util.UUID;
 
 @ApiOperation("文件上传接口")
 @RestController
-@RequestMapping("admin/product")
-@CrossOrigin
+@RequestMapping("/admin/product")
 public class FileUploadController {
 
     @ApiOperation("图片上传")

@@ -24,7 +24,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/sys/ware")
-@CrossOrigin
 public class WareController {
 
     @Autowired

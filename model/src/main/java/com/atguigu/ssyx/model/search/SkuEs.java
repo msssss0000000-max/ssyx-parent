@@ -62,7 +62,7 @@ public class SkuEs {
     @Field(type = FieldType.Long)
     private Long hotScore = 0L;
 
-    @Field(type = FieldType.Object, index = false)
+    @Field(type = FieldType.Nested)
     private List<String> ruleList;
 
 }

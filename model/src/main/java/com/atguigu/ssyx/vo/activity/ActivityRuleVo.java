@@ -26,5 +26,4 @@ public class ActivityRuleVo implements Serializable {
 
    @ApiModelProperty(value = "优惠券id列表")
    private List<Long> couponIdList;
-
 }

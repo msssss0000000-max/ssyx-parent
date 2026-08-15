@@ -13,6 +13,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class ServiceSearchApplication {
 
     public static void main(String[] args) {
+
+        System.setProperty("feign.sentinel.enabled", "false");
+        System.setProperty("feign.hystrix.enabled", "false");
         SpringApplication.run(ServiceSearchApplication.class, args);
     }
 

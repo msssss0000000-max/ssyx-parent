@@ -1,0 +1,18 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: service-gateway
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+springfox:
+  documentation:
+    enabled: false

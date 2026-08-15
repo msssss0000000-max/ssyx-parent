@@ -21,7 +21,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/sys/region")
-@CrossOrigin
 public class RegionController {
 
     @Autowired

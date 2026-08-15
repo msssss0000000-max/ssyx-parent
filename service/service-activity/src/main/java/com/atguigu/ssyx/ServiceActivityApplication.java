@@ -5,14 +5,16 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @MapperScan("com.atguigu.ssyx.*.mapper")
 @EnableDiscoveryClient
-public class ServiceProductApplication {
+@EnableFeignClients
+public class ServiceActivityApplication {
 
     public static void main(String[] args){
 
-        SpringApplication.run(ServiceProductApplication.class,args);
+        SpringApplication.run(ServiceActivityApplication.class,args);
     }
 }

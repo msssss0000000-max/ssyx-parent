@@ -19,7 +19,6 @@ import java.util.Map;
 @Api(tags="用户接口")
 @RestController
 @RequestMapping("/admin/acl/user")
-@CrossOrigin
 public class AdminController {
 
     @Autowired

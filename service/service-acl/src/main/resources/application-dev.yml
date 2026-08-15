@@ -1,5 +1,5 @@
 server:
-  port: 8201
+  port: 8211
 
 mybatis-plus:
   configuration:
@@ -9,9 +9,9 @@ spring:
   datasource:
     type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shequ-acl?characterEncoding=utf-8&useSSL=false
-    username: root
-    password: Ms123Sql@!!
+    url: jdbc:mysql://localhost:3306/shequ-acl?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    username: myroot
+    password: myrootpassword
 
 
 jackson:
